@@ -1,16 +1,3 @@
-# Bootstrap w/ Vite
+# Heart Failure Prediction
 
-Include [Bootstrap](https://getbootstrap.com)'s source Sass and individual JavaScript plugins with [Vite](https://vitejs.dev/).
-
-## Edit in browser
-
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/twbs/examples/tree/main/vite?file=index.html)
-
-## How to use
-
-```sh
-git clone https://github.com/twbs/examples.git
-cd examples/vite/
-npm install
-npm start
-```
+![127 0 0 1_5000_pengujian (1)](https://github.com/alfinanora/prediksi-jantung/assets/75176567/dd0d62ea-a5ce-4418-9817-d8dafed3530f)
