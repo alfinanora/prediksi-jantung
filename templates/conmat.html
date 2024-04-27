@@ -7,51 +7,27 @@
 {% block body %}
 <main class="content">
   <div class="row">
-    <div class="col-12">
-      <div class="card">
-        <div class="card-body">
-          <div class="row">
-            <div class="col-md-4">
-              <h5 class="card-title fw-semibold mb-4">Card</h5>
-              <div class="card">
-                <img src="../assets/images/products/s4.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                    the
-                    card's content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <h5 class="card-title fw-semibold mb-4">Header and footer</h5>
-              <div class="card">
-                <div class="card-header">
-                  Featured
-                </div>
-                <div class="card-body">
-                  <h5 class="card-title">Special title treatment</h5>
-                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <h5 class="card-title fw-semibold mb-4">Titles, text, and links</h5>
-              <div class="card">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                    the
-                    card's content.</p>
-                  <a href="#" class="card-link">Card link</a>
-                  <a href="#" class="card-link">Another link</a>
-                </div>
-              </div>
-            </div>
-          </div>
+    <div class="col-lg-6">
+      <div class="card overflow-hidden rounded-2">
+        <div class="position-relative p-2">
+          <img src="{{ url_for('static', filename='images/confusion_matrix.png') }}" class="card-img-top rounded-0" alt="Confusion Matrix">
+        </div>
+        <div class="card-body pt-3">
+          <ul class="text-center">
+            <li><h6 class="fw-semibold fs-4">K-nearest neighbors (KNN)</h6></li>
+            <li><h6 class="fw-semibold fs-4">Particle Swarm Optimization (PSO)</h6></li>
+            <li><h6 class="fw-semibold fs-4">Random Oversampling</h6></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <div class="card overflow-hidden rounded-2">
+        <div class="p-3">
+          <img src="{{ url_for('static', filename='images/akurasi.png') }}" class="card-img-top rounded-0" alt="Akurasi">
+        </div>
+        <div class="card-body pt-3">
+          <h6 class="fw-semibold fs-4 text-center">Akurasi</h6>
         </div>
       </div>
     </div>

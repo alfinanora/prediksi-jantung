@@ -1,12 +1,14 @@
-from flask import Flask, render_template, request, jsonify
-# import pickle
-import numpy as np
-# from flask_cors import CORS
+from flask import Flask, render_template, request
+import pickle
 import os
 import pandas as pd  
 
-# Inisialisasi objek Flask
 app = Flask(__name__)
+
+# Inisialisasi model
+model = pickle.load(open('./models/knn_model.pkl', 'rb'))
+scaler = pickle.load(open('./models/scaler.pkl', 'rb'))
+pos = pickle.load(open('./models/pos.pkl', 'rb'))
 
 @app.route('/')
 def dashboard():
@@ -25,6 +27,36 @@ def dataset():
 @app.route('/pengujian')
 def pengujian():
     return render_template('pengujian.html')
+
+@app.route('/predict', methods=['POST'])
+def predict():
+    if request.method == 'POST':
+        try:
+            form_values = request.form.to_dict()
+
+            data = {}
+
+            data = {key: [float(value)] if value.replace('.', '', 1).isdigit() else value for key, value in form_values.items()}
+
+            # Membuat data kedalam bentuk dataframe
+            df = pd.DataFrame(data)
+
+            # Seleksi fitur PSO
+            selected_features = df.columns[pos > 0.5]
+            new_data_selected = df[selected_features]
+
+            # Scaler
+            new_data_std = scaler.transform(new_data_selected)
+
+            # Prediksi hasil
+            prediction = model.predict(new_data_std)
+            predicted_class = prediction[0]
+
+            # Return prediction as JSON
+            return str(predicted_class)
+
+        except Exception as e:
+            return {"error": str(e)}
 
 @app.route('/conmat')
 def conmat():

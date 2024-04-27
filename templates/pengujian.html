@@ -7,62 +7,305 @@
 {% block body %}
 <main class="content">
   <div class="row">
-    <div class="col-12">
-      <div class="card">
+
+    <div class="col-lg-8 d-flex align-items-strech">
+      <div class="card w-100">
         <div class="card-body">
-          <h5 class="card-title fw-semibold mb-4">Forms</h5>
-          <div class="card">
-            <div class="card-body">
-              <form>
-                <div class="mb-3">
-                  <label for="exampleInputEmail1" class="form-label">Email address</label>
-                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                  <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-                </div>
-                <div class="mb-3">
-                  <label for="exampleInputPassword1" class="form-label">Password</label>
-                  <input type="password" class="form-control" id="exampleInputPassword1">
-                </div>
-                <div class="mb-3 form-check">
-                  <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                  <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-              </form>
+          <div class="d-sm-flex d-block align-items-center justify-content-between mb-9">
+            <div class="mb-3 mb-sm-0">
+              <h5 class="card-title fw-semibold">Form Pengujian</h5>
             </div>
           </div>
-          <h5 class="card-title fw-semibold mb-4">Disabled forms</h5>
-          <div class="card mb-0">
-            <div class="card-body">
-              <form>
-                <fieldset disabled>
-                  <legend>Disabled fieldset example</legend>
-                  <div class="mb-3">
-                    <label for="disabledTextInput" class="form-label">Disabled input</label>
-                    <input type="text" id="disabledTextInput" class="form-control" placeholder="Disabled input">
-                  </div>
-                  <div class="mb-3">
-                    <label for="disabledSelect" class="form-label">Disabled select menu</label>
-                    <select id="disabledSelect" class="form-select">
-                      <option>Disabled select</option>
-                    </select>
-                  </div>
-                  <div class="mb-3">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" id="disabledFieldsetCheck" disabled>
-                      <label class="form-check-label" for="disabledFieldsetCheck">
-                        Can't check this
-                      </label>
-                    </div>
-                  </div>
-                  <button type="submit" class="btn btn-primary">Submit</button>
-                </fieldset>
-              </form>
+
+          <form action="/predict" method="post" id="predictionForm">
+            <div class="row">
+              <div class="col-lg-4 mb-4">
+                <label for="age" class="form-label">umur</label>
+                <input name="age" type="number" id="age" class="form-control" min="40" max="95" placeholder="40 - 95">
+              </div>
+              <div class="col-lg-4 mb-4">
+                <label for="sex" class="form-label">jenis kelamin</label>
+                <select name="sex" id="sex" class="form-select">
+                  <option>Pilih</option>
+                  <option value="1">Laki-laki</option>
+                  <option value="0">Perempuan</option>
+                </select>
+              </div>
+              <div class="col-lg-4 mb-4">
+                <label for="anaemia" class="form-label">anaemia</label>
+                <select name="anaemia" id="anaemia" class="form-select">
+                  <option>Pilih</option>
+                  <option value="1">Ya</option>
+                  <option value="0">Tidak</option>
+                </select>
+              </div>
+              <div class="col-lg-4 mb-4">
+                <label for="creatinine_phosphokinase" class="form-label">creatinine_phosphokinase</label>
+                <input name="creatinine_phosphokinase" type="text" class="form-control" id="creatinine_phosphokinase" placeholder="23 - 7861">
+              </div>
+              <div class="col-lg-4 mb-4">
+                <label for="diabetes" class="form-label">diabetes</label>
+                <select name="diabetes" id="diabetes" class="form-select">
+                  <option>Pilih</option>
+                  <option value="1">Ya</option>
+                  <option value="0">Tidak</option>
+                </select>
+              </div>
+              <div class="col-lg-4 mb-4">
+                <label for="ejection_fraction" class="form-label">ejection_fraction</label>
+                <input name="ejection_fraction" type="text" class="form-control" id="ejection_fraction" placeholder="14 - 80">
+              </div>
+              <div class="col-lg-4 mb-4">
+                <label for="high_blood_pressure" class="form-label">high_blood_pressure</label>
+                <select name="high_blood_pressure" id="high_blood_pressure" class="form-select">
+                  <option>Pilih</option>
+                  <option value="1">Ya</option>
+                  <option value="0">Tidak</option>
+                </select>
+              </div>
+              <div class="col-lg-4 mb-4">
+                <label for="platelets" class="form-label">platelets</label>
+                <input name="platelets" type="text" class="form-control" id="platelets" placeholder="25000.01 - 850000.00">
+              </div>
+              <div class="col-lg-4 mb-4">
+                <label for="serum_creatinine" class="form-label">serum_creatinine</label>
+                <input name="serum_creatinine" type="text" class="form-control" id="serum_creatinine" placeholder="0.50 - 9.40">
+              </div>
+              <div class="col-lg-4 mb-4">
+                <label for="serum_sodium" class="form-label">serum_sodium</label>
+                <input name="serum_sodium" type="text" class="form-control" id="serum_sodium" placeholder="114 - 148">
+              </div>
+              <div class="col-lg-4 mb-4">
+                <label for="smoking" class="form-label">smoking</label>
+                <select name="smoking" id="smoking" class="form-select">
+                  <option>Pilih</option>
+                  <option value="1">Ya</option>
+                  <option value="0">Tidak</option>
+                </select>
+              </div>
+              <div class="col-lg-4 mb-4">
+                <label for="time" class="form-label">time (per hari)</label>
+                <input name="time" type="text" class="form-control" id="time" placeholder="4 - 285">
+              </div>
             </div>
-          </div>
+            <button type="button" onclick="submitForm()" class="btn btn-primary">Submit</button>
+          </form>
+
         </div>
       </div>
     </div>
+    <div class="col-lg-4">
+      <div class="card w-100">
+        <div class="card-body">
+          <div class="d-sm-flex d-block align-items-center justify-content-between mb-9">
+            <div class="mb-3 mb-sm-0">
+              <h5 class="card-title fw-semibold">Keterangan</h5>
+            </div>
+          </div>
+
+          <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  anaemia
+                </button>
+              </h2>
+              <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  Penurunan <strong>sel darah merah</strong> atau <strong>hemoglobin</strong>.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  creatinine_phosphokinase (mcg/L)
+                </button>
+              </h2>
+              <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  Level enzim <strong>CPK</strong> dalam darah yang mengindikasikan ukuran dari <strong>kerusakan otot</strong> yang dilepaskan ke dalam darah. 
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingThree">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                  diabetes
+                </button>
+              </h2>
+              <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  Kondisi medis di mana kadar <strong>gula darah</strong> dalam tubuh terlalu <strong>tinggi</strong>.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingTen">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTen" aria-expanded="false" aria-controls="collapseTen">
+                  ejection_fraction
+                </button>
+              </h2>
+              <div id="collapseTen" class="accordion-collapse collapse" aria-labelledby="headingTen" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  Persentase darah yang <strong>meninggalkan jantung</strong> setiap kontraksi, dengan kata lain ukuran dari seberapa efisien jantung memompa darah ke dalam sirkulasi tubuh.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingFour">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                  high_blood_pressure
+                </button>
+              </h2>
+              <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  Jika pasien menderita hipertensi. <strong>Hipertensi</strong> adalah kondisi medis di mana tekanan darah dalam arteri tubuh meningkat secara persisten.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingFive">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                  platelets (kiloplatelets/mL)
+                </button>
+              </h2>
+              <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <strong>Platelets</strong> dalam darah adalah sel kecil yang membantu dalam <strong>pembekuan darah</strong> untuk mencegah kehilangan darah berlebihan saat terjadi luka atau cedera.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingSix">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                  serum_creatinine (mg/dL)
+                </button>
+              </h2>
+              <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  Level <strong>kreatinin</strong> dalam darah adalah ukuran dari seberapa baik <strong>ginjal menyaring limbah</strong> dari darah; tingkat yang tinggi dapat menunjukkan masalah ginjal.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingSeven">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                  serum_sodium (mEq/L)
+                </button>
+              </h2>
+              <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  Level <strong>natrium</strong> dalam darah adalah ukuran dari kadar natrium, elektrolit penting yang mempengaruhi keseimbangan cairan dan fungsi saraf dalam tubuh.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingEight">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                  smoking
+                </button>
+              </h2>
+              <div id="collapseEight" class="accordion-collapse collapse" aria-labelledby="headingEight" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  Apakah pasien seorang <strong>perokok</strong>.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingNine">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
+                  time
+                </button>
+              </h2>
+              <div id="collapseNine" class="accordion-collapse collapse" aria-labelledby="headingNine" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  Periode <strong>waktu</strong> setelah pengamatan awal di mana data pasien gagal jantung terus dipantau atau dipelajari untuk memantau <strong>perubahan kondisi</strong> mereka.
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Prediction -->
+    <div id="predictionModal" class="modal fade" data-backdrop="static">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header px-4">
+            <h4 class="modal-title">Hasil Prediksi</h4>
+          </div>
+          <div class="modal-body" id="predictionResult"></div>
+          <div class="modal-footer d-flex justify-content-center">
+            <a href="/pengujian" class="btn btn-primary">Ambil Tes Lagi</a>
+          </div>
+        </div>
+      </div>
+    </div> 
+
   </div>
 </main>
+{% endblock %}
+
+{% block script %}
+<script>
+  function submitForm() {
+      var form = document.getElementById("predictionForm");
+      var formData = new FormData(form);
+      var inputs = form.querySelectorAll("input, select");
+      var isEmpty = false;
+      // Memeriksa setiap elemen input dan select
+      for (var i = 0; i < inputs.length; i++) {
+          if (!inputs[i].value) {
+              isEmpty = true;
+              break;
+          }
+      }
+
+      // Jika ada input atau select yang kosong, tampilkan error
+      if (isEmpty) {
+          alert("Harap isi semua kolom form sebelum melakukan prediksi.");
+      } else {
+          // Jika tidak ada input yang kosong, kirim permintaan POST ke server
+          fetch('/predict', {
+              method: 'POST',
+              body: formData
+          })
+          .then(response => {
+              if (!response.ok) {
+                  throw new Error('Network response was not ok');
+              }
+              return response.json();
+          })
+          .then(data => {
+              // Menampilkan hasil prediksi dalam bentuk modal
+              showModal(data);
+          })
+          .catch(error => {
+              console.error('Tidak dapat mengirim data');
+          });
+      }
+  }
+    
+  function showModal(prediction) {
+      var resultContainer = document.getElementById("predictionResult");
+      var icon = prediction == '1' ? "/static/images/icon/alert-triangle.png" : "/static/images/icon/check.png";
+      var iconHtml = "<img src='" + icon + "' style='width: 100px; height: 100px;'>";
+
+      var htmlContent = "<div style='text-align: center; margin-top: 5px; margin-bottom: 5px;'>" + iconHtml + "</div>";
+      if (prediction == '1') {
+          htmlContent += "<h2 style='color: #e21227; font-weight: bold;' class='text-center'>Terdapat Indikasi Gagal Jantung.</span></h2>";
+      } else {
+          htmlContent += "<h2 style='color: #20c997; font-weight: bold;' class='text-center'>Tidak Ada Indikasi Gagal Jantung.</span></h2>";
+      }
+      resultContainer.innerHTML = htmlContent;
+      $('#predictionModal').modal('show');
+  }
+
+  function hideModal() {
+      $('#predictionModal').modal('hide');
+  }
+</script>
 {% endblock %}
