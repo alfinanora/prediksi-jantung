@@ -1,0 +1,52 @@
+<aside class="left-sidebar">
+    <!-- Sidebar scroll-->
+    <div>
+      <div class="brand-logo d-flex align-items-center justify-content-between">
+        <a href="/" class="text-nowrap logo-img">
+          <img src="{{ url_for('static', filename='images/logos/dark-logo.svg') }}" width="180" alt="" />
+        </a>
+        <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
+          <i class="ti ti-x fs-8"></i>
+        </div>
+      </div>
+      <!-- Sidebar navigation-->
+      <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
+        <ul id="sidebarnav" class="my-3">
+          <li class="sidebar-item">
+            <a class="sidebar-link" href="{{url_for('dashboard')}}" aria-expanded="false">
+              <span>
+                <i class="ti ti-home-2"></i>
+              </span>
+              <span class="hide-menu">Dashboard</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a class="sidebar-link" href="{{url_for('dataset')}}" aria-expanded="false">
+              <span>
+                <i class="ti ti-database"></i>
+              </span>
+              <span class="hide-menu">Dataset</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a class="sidebar-link" href="{{url_for('pengujian')}}" aria-expanded="false">
+              <span>
+                <i class="ti ti-pencil"></i>
+              </span>
+              <span class="hide-menu">Pengujian</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a class="sidebar-link" href="{{url_for('conmat')}}" aria-expanded="false">
+              <span>
+                <i class="ti ti-square"></i>
+              </span>
+              <span class="hide-menu">Confusion Matrix</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <!-- End Sidebar navigation -->
+    </div>
+    <!-- End Sidebar scroll-->
+</aside>

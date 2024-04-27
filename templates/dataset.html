@@ -1,0 +1,81 @@
+{% extends 'layouts/base.html' %}
+
+{% block head %}
+<title>Dataset</title>
+{% endblock %}
+
+{% block body %}
+<main class="content">
+  <div class="row">
+    <div class="col-12">
+
+      <div class="card">
+        <div class="card-body" style="max-height: 600px; overflow-y: auto; overflow-x: auto;">
+          <h4 class="fw-semibold mb-4">Heart Disease Dataset</h4>
+
+          <!-- Nav tabs -->
+          <ul class="nav nav-tabs sticky-tab" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" id="dataset-asli-tab" data-bs-toggle="tab" href="#dataset-asli" role="tab">Dataset Asli</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="dataset-preprocessing-tab" data-bs-toggle="tab" href="#dataset-preprocessing" role="tab">Dataset Preprocessing</a>
+            </li>
+          </ul>
+    
+          <!-- Tab panes -->
+          <div class="tab-content">
+            <!-- Tab "Dataset Asli" -->
+            <div class="tab-pane active" id="dataset-asli" role="tabpanel">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <!-- Tambahkan kolom sesuai dengan data dataset heart.csv -->
+                    <th scope="col">No</th> 
+                    <th scope="col">Age</th>
+                    <th scope="col">anaemia</th>
+                    <th scope="col">creatinine_phosphokinase</th>
+                    <th scope="col">diabetes</th>		
+                    <th scope="col">ejection_fraction</th>
+                    <th scope="col">high_blood_pressure</th>
+                    <th scope="col">platelets</th>  
+                    <th scope="col">serum_creatinine</th>
+                    <th scope="col">serum_sodium</th>  
+                    <th scope="col">sex</th>
+                    <th scope="col">smoking</th>
+                    <th scope="col">time</th>
+                    <th scope="col">DEATH_EVENT</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- Isi tabel dengan data dari dataset heart_failure.csv -->
+                  {% for index, row in df_heart.iterrows() %}
+                  <tr>
+                    <td scope="row">{{ index + 1 }}</td>
+                    <td>{{ row['age'] }}</td>	
+                    <td>{{ row['anaemia'] }}</td>
+                    <td>{{ row['creatinine_phosphokinase'] }}</td>
+                    <td>{{ row['diabetes'] }}</td>
+                    <td>{{ row['ejection_fraction'] }}</td>
+                    <td>{{ row['high_blood_pressure'] }}</td>
+                    <td>{{ row['platelets'] }}</td>	
+                    <td>{{ row['serum_creatinine'] }}</td>
+                    <td>{{ row['serum_sodium'] }}</td>
+                    <td>{{ row['sex'] }}</td>
+                    <td>{{ row['smoking'] }}</td>
+                    <td>{{ row['time'] }}</td>
+                    <td>{{ row['DEATH_EVENT'] }}</td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</main>
+{% endblock %}
